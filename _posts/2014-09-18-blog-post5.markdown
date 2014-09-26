@@ -3,7 +3,7 @@ layout: post
 title:  "Blog post5"
 date:   2014-09-18 18:23:37
 categories: highlight
-#image: image242x200.png
+image: image242x200.png
 image_alt: "post5"
 ---
 
