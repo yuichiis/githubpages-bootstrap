@@ -3,7 +3,7 @@ GitHub Pages Bootstrap
 
 This is a website template for the Automatic page generator on the GitHub Pages.
 
-##You can make a website quickly.
+## You can make a website quickly.
 
 - Download this.
 - Edit just 2 files. 
@@ -27,9 +27,9 @@ Enjoy!
 ![Screenshot](https://raw.githubusercontent.com/yuichiis/githubpages-bootstrap/master/img/screenshot800.jpg "Screenshot")
 
 
-##Why "GitHub Pages Bootstrap"
+## Why "GitHub Pages Bootstrap"
 
-####Why I don't use "Octpress"?
+#### Why I don't use "Octpress"?
 Do you want to use Octpress? I'm not.
 
 - Its directory structure is very confusing.
@@ -38,7 +38,7 @@ Do you want to use Octpress? I'm not.
 
 Because I want to take the easy course, I use the Jekyll. But Octpress is ....
 
-####Why I don't use "Jekyll Bootstrap"?
+#### Why I don't use "Jekyll Bootstrap"?
 
 - Do you know any people are using it?
 - I want a "Template of Webpages theme".
@@ -47,7 +47,7 @@ Because I want to take the easy course, I use the Jekyll. But Octpress is ....
 So uncool.
 
 
-##Features
+## Features
 
 ####Prepared in advance page layout
 Beautiful design is built in by the Grid system of "Bootstrap".
@@ -60,14 +60,14 @@ Beautiful design is built in by the Grid system of "Bootstrap".
 - etc.
 
 
-####Navigation Menu
+#### Navigation Menu
 Navigator menu can be modified in the "_config.yml".
 
 - Easy configurable menu.
 - Indicate showing page on the navigator.
 
 
-####Useful widgets
+#### Useful widgets
 Many widgets are ready for use.
 
 - Show highlight blog posts with featured image.
@@ -80,7 +80,7 @@ Many widgets are ready for use.
 - etc.
 
 
-####Google ready
+#### Google ready
 Easy to use Google Tools.
 
 - Google analytics
@@ -88,18 +88,18 @@ Easy to use Google Tools.
 - Google custom search engine
 
 
-####Blog and Document Collection
+#### Blog and Document Collection
 
 - Pagination of blog posts.
 - Structured document page navigator.
 - Easy setting document collection.
 
 
-##Copyright and License
+## Copyright and License
 See [LICENSE](LICENSE)
 
 
-##Thanks
+## Thanks
 
 - [Github](https://github.com/)
 - [Jekyll](http://jekyllrb.com/)

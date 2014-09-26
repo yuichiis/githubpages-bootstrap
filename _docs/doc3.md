@@ -6,8 +6,8 @@ upper_section: index
 ---
 doc
 
-##doc3 1
+## doc3 1
 test
 
-##doc3 2
+## doc3 2
 test

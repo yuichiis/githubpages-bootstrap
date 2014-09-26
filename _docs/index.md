@@ -5,6 +5,6 @@ title_position: header
 title: Documents
 ---
 
-##index
+## index
 
 {% include widget-docindex.html collection=site.docs %}

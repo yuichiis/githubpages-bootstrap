@@ -6,5 +6,5 @@ next_section: doc2-2
 upper_section: doc2
 ---
 
-##test
+## test
 doc
