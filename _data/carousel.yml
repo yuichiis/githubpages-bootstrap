@@ -1,0 +1,12 @@
+# Carousel widget
+- caption: "First Slide"
+  image: FirstSlide.png
+  alt: "First Slide"
+
+- caption: "Second Slide"
+  image: SecondSlide.png
+  alt: "Second Slide"
+
+- caption: "Third Slide"
+  image: ThirdSlide.png
+  alt: "Third Slide"

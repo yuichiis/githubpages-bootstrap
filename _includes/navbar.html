@@ -1,0 +1,42 @@
+<header class="navbar navbar-default navbar-static-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="{{ site.baseurl }}/"><span class="glyphicon glyphicon-home"></span></a>
+    </div>
+    <div class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+      {% for nav in site.navbar %}
+        {% if nav.menu %}
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">{{ nav.caption }}<b class="caret"></b></a>
+            <ul class="dropdown-menu">
+            {% for menu_item in nav.menu %}
+              {% if menu_item.separator %}
+                <li class="{{ menu_item.separator }}">{{ menu_item.caption }}</li>
+              {% else %}
+                <li><a href="{{ menu_item.link }}">{{ menu_item.caption }}</a></li>
+              {% endif %}
+            {% endfor %}
+            </ul>
+          </li>
+        {% else %}
+          <li{% if page.url contains nav.link %} class="active"{% endif %}><a href="{{ nav.link }}">{{ nav.caption }}</a></li>
+        {% endif %}
+      {% endfor %}
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <form class="navbar-form navbar-left" action="https://www.google.com/search" method="get" role="form">
+          <fieldset role="search">
+            <input type="hidden" name="q" value="site:{{ site.hostname }}" />
+            <input class="form-control" type="search" name="q" results="0" placeholder="Search"/>
+          </fieldset>
+        </form>
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!-- /.container -->
+</header>

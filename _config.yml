@@ -1,0 +1,64 @@
+# Site settings
+lang: en
+title: "Your awesome title"
+description: "Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description."
+baseurl: ""
+exclude: [ "README.md", "LICENSE" ]
+url: "http://yourdomain.com"
+hostname: "yourdomain.com"
+email: your-email@domain.com
+twitter_username: your_twitter_username
+github_username:  your_github_username
+#google_analytics_id: UA-XXXXXXXX-XX
+#google_site_verification: XXXXXXXXXXXXXXXXXXXXXXXXXXX
+#google_custom_search_engine_id: "XXXXXXXX:XXXXXXXXXXXXXXXXXXX"
+
+# Build settings
+permalink: "/blog/:year/:month/:day/:title/"
+images_path: "/img/"
+#gems: [jekyll-test-plugin, jekyll-jsonify, jekyll-assets]
+
+# Blog pagination
+paginate: 5
+paginate_path: "blog/page:num"
+
+
+# Page header and wallpaper customizing
+header_image: title.jpg
+#header_pattern: "linear-gradient(to bottom,#563d7c 0,#6f5499 100%)"
+header_text_color: "white"
+#wallpaper_image: wallpaper.jpg
+#wallpaper_pattern: "linear-gradient(to bottom,#563d7c 0,#6f5499 100%)"
+#content_text_color: "white"
+
+# Navigation Bar
+navbar:
+  - caption: "Projects"
+    menu:
+      - { caption: "Original OS", link: "#"}
+      - { caption: "Creating Web pages", link: "#"}
+      - { caption: "Something else here", link: "#"}
+      - { separator: "divider" }
+      - { caption: "miscellaneous", separator: "dropdown-header" }
+      - { caption: "Downloads", link: "#"}
+  - { caption: "Blog", link: "/blog/" }
+  - { caption: "Documents", link: "/docs/" }
+  - { caption: "Help", link: "/help/" }
+  - { caption: "Sitemap", link: "/sitemap/" }
+  - { caption: "About", link: "/about/" }
+
+
+# Document collections
+collections:
+  docs:
+    header: "header.html"
+    title: "Documents"
+    description: ""
+    title_position: article
+    output: true
+  help:
+    header: "header.html"
+    title: "Help"
+    description: ""
+    title_position: article
+    output: true

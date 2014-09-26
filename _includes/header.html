@@ -1,0 +1,28 @@
+{% if include.title_position %}{% assign title_position=include.title_position %}{% endif %}
+{% if include.header_title %}{% assign header_title=include.header_title %}{% endif %}
+{% if include.header_description %}{% assign header_description=include.header_description %}{% endif %}
+<div class="jumbotron">
+  <div class="container">
+  {% if page.title_position == "header" or title_position == "header" %}
+    <h2>{{ page.title }}</h2>
+    {% if page.header_description %}
+      <p>{{ page.header_description }}</p>
+    {% else %}
+      <p>{{ header_description }}</p>
+    {% endif %}
+  {% else %}
+    {% if page.header_title or header_title %}
+      {% if page.header_title %}
+        <h2>{{ page.header_title }}</h2>
+        <p>{{ page.header_description }}</p>
+      {% else %}
+        <h2>{{ header_title }}</h2>
+        <p>{{ header_description }}</p>
+      {% endif %}
+    {% else %}
+      <h2>{{ site.title }}</h2>
+      <p>{{ site.description }}</p>
+    {% endif %}
+  {% endif %}
+  </div>
+</div>

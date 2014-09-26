@@ -1,0 +1,38 @@
+---
+layout: default
+header: header.html
+title_position: article
+---
+<p>
+  <ul class="pager">
+    {% if page.previous %}
+      <li><a href="{{ page.previous.url }}">Previous</a></li>
+    {% else %}
+      <li class="disabled"><a href="#">Previous</a></li>
+    {% endif %}
+    {% if page.next %}
+      <li><a href="{{ page.next.url }}">Next</a></li>
+    {% else %}
+      <li class="disabled"><a href="#">Next</a></li>
+    {% endif %}
+  </ul>
+  <header class="post-header">
+    <h1>{{ page.title }}</h1>
+    <p class="meta">{{ page.date | date: "%b %-d, %Y" }}{% if page.author %} • {{ page.    author }}{% endif %}{% if page.meta %} • {{ page.meta }}{% endif %}</p>
+  </header>
+  <article class="post-content">
+  {{ content }}
+  </article>
+  <ul class="pager">
+    {% if page.previous %}
+      <li><a href="{{ page.previous.url }}">Previous</a></li>
+    {% else %}
+      <li class="disabled"><a href="#">Previous</a></li>
+    {% endif %}
+    {% if page.next %}
+      <li><a href="{{ page.next.url }}">Next</a></li>
+    {% else %}
+      <li class="disabled"><a href="#">Next</a></li>
+    {% endif %}
+  </ul>
+</p>

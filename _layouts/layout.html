@@ -1,0 +1,28 @@
+---
+---
+<!DOCTYPE html>
+<html{% if site.lang %} lang="{{ site.lang }}"{% endif %}>
+  {% include head.html %}
+  <body>
+    {% include google-analytics.html %}
+    {% include navbar.html %}
+    {% if page.header %}
+      {% include {{ page.header }} %}
+    {% elsif page.collection %}
+      {% comment %} Collection can not inherit "page.header" property. {% endcomment %}
+      {% assign header = site.collections[page.collection].header %}
+      {% if !header %}{% assign header = "header.html" %}{% endif %}
+      {% assign header_title = site.collections[page.collection].title %}
+      {% assign header_description = site.collections[page.collection].description %}
+      {% assign title_position = site.collections[page.collection].title_position %}
+      {% include {{ header }} header_title=header_title header_description=header_description title_position=title_position %}
+    {% endif %}
+    <div class="container">
+      <section id="main">
+        {{ content }}
+      </section>
+      {% include footer.html %}
+    </div><!-- /.container -->
+    {% include scripts.html %}
+  </body>
+</html>

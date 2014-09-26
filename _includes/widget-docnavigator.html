@@ -1,0 +1,42 @@
+{% if include.enable_title %}
+  {% for doc in site[page.collection] %}
+    {% assign title = doc.url | split:"/" | last | remove:".html" %}
+    {% if page.previous_section == title %}
+      {% assign previous_title = doc.title %}
+    {% endif %}
+    {% if page.next_section == title %}
+      {% assign next_title = doc.title %}
+    {% endif %}
+  {% endfor %}
+{% endif %}
+  <nav class="navigator">
+    {% if include.enable_title == "top" %}
+      <div class="row">
+        <div class="col-xs-6 text-left">{{ previous_title }}</div>
+        <div class="col-xs-6 text-right">{{ next_title }}</div>
+      </div>
+    {% endif %}
+    <ul class="pager">
+      {% if page.previous_section %}
+        <li class="previous"><a href="{{ page.previous_section | append:".html" }}">Previous</a></li>
+      {% else %}
+        <li class="previous disabled"><a href="#">Previous</a></li>
+      {% endif %}
+      {% if page.upper_section %}
+        <li><a href="{{ page.upper_section | append:".html" }}">Up</a></li>
+      {% else %}
+        <li class="disabled"><a href="#">Up</a></li>
+      {% endif %}
+      {% if page.next_section %}
+        <li class="next"><a href="{{ page.next_section | append:".html" }}">Next</a></li>
+      {% else %}
+        <li class="next disabled"><a href="#">Next</a></li>
+      {% endif %}
+    </ul>
+    {% if include.enable_title == "bottom" %}
+      <div class="row">
+        <div class="col-xs-6 text-left">{{ previous_title }}</div>
+        <div class="col-xs-6 text-right">{{ next_title }}</div>
+      </div>
+    {% endif %}
+  </nav>
