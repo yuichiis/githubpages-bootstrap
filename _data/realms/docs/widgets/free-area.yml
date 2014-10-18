@@ -1,0 +1,9 @@
+### Free Area
+menu: |
+  - [home](index.html)
+  - [doc1](doc1.html)
+  - [doc2](doc2.html)
+    - [doc2-1](doc2-1.html)
+    - [doc2-2](doc2-2.html)
+  - [doc3](doc3.html)
+

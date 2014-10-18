@@ -2,6 +2,21 @@
 layout: post
 title:  "Blog post7"
 date:   2014-09-18 18:34:37
+author:
+  display_name: test
+comments:
+- author: test3
+  date: 2014-09-19 18:34:37
+  content: ! 'test comment
+
+test test.
+'
+- author: test3
+  date: 2014-09-20 18:34:37
+  content: ! 'test comment2
+
+test test test.
+'
 ---
 
 Test 

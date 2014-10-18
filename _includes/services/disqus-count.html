@@ -1,0 +1,3 @@
+{% if site.disqus_shortname %}
+<a class="{{ include.class }}" href="{% if include.url %}{{ include.url }}{% else %}{{ site.url }}{{ page.url }}{% endif %}#disqus_thread">Comments</a>
+{% endif %}

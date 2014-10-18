@@ -1,28 +1,21 @@
-{% if include.title_position %}{% assign title_position=include.title_position %}{% endif %}
-{% if include.header_title %}{% assign header_title=include.header_title %}{% endif %}
-{% if include.header_description %}{% assign header_description=include.header_description %}{% endif %}
+{% if page.collection %}
+  {% comment %} Collection can not inherit page property. {% endcomment %}
+  {% assign header = site.collections[page.collection] %}
+{% elsif page.type == "blog" %}
+  {% assign header = site.blog %}
+{% else %}
+  {% assign header = page %}
+{% endif %}
+{% if header.header != "disable" %}
 <div class="jumbotron">
   <div class="container">
-  {% if page.title_position == "header" or title_position == "header" %}
-    <h2>{{ page.title }}</h2>
-    {% if page.header_description %}
-      <p>{{ page.header_description }}</p>
-    {% else %}
-      <p>{{ header_description }}</p>
-    {% endif %}
+  {% if header.title %}
+    <h1 class="{% include get-theme-value name="header_title_class" %}">{{ header.title }}</h1>
+    <p class="{% include get-theme-value name="header_description_class" %}">{{ header.description }}</p>
   {% else %}
-    {% if page.header_title or header_title %}
-      {% if page.header_title %}
-        <h2>{{ page.header_title }}</h2>
-        <p>{{ page.header_description }}</p>
-      {% else %}
-        <h2>{{ header_title }}</h2>
-        <p>{{ header_description }}</p>
-      {% endif %}
-    {% else %}
-      <h2>{{ site.title }}</h2>
-      <p>{{ site.description }}</p>
-    {% endif %}
+    <h1 class="{% include get-theme-value name="header_title_class" %}">{{ site.title }}</h1>
+    <p class="{% include get-theme-value name="header_description_class" %}">{{ site.description }}</p>
   {% endif %}
   </div>
 </div>
+{% endif %}

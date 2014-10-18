@@ -1,4 +1,0 @@
-{% assign collection = include.collection %}
-{% for doc in collection %}
-  {% if doc != page %}- [{{ doc.title }}]({{ doc.url }}){% endif %}
-{% endfor %}

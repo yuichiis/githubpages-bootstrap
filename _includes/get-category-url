@@ -1,0 +1,1 @@
+{% if site.data.widgets.categories[include.category] %}{{ site.baseurl }}/blog/categories/{{ site.data.widgets.categories[include.category] }}.html{% else %}#{% endif %}

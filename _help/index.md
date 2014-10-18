@@ -1,10 +1,7 @@
 ---
-layout: default
-header: header.html
-title_position: header
-title: Help
+layout: document
+title: Index
+next_section: help1
 ---
 
-## index
-
-{% include widget-docindex.html collection=site.help %}
+{% include widgets/doc-list.html collection=site.help %}

@@ -1,10 +1,7 @@
 ---
-layout: default
-header: header.html
-title_position: header
-title: Documents
+layout: document
+title: index
+next_section: doc1
 ---
 
-## index
-
-{% include widget-docindex.html collection=site.docs %}
+{% include widgets/doc-list.html collection=site.docs %}

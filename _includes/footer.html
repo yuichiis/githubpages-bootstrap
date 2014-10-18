@@ -1,5 +1,6 @@
+{% capture footer %}{% include get-theme-value name="footer" %}{% endcapture %}{% if footer != "disable" %}
 <footer class="site-footer">
-  <p>{{ site.title }}({{ 'now' | date: "%Y" }}) All rights reserved. </p>
+  <p>{% if site.author %}{{ site.author }}{% else %}{{ site.title }}{% endif %}({{ 'now' | date: "%Y" }}) All rights reserved. </p>
   <ul class="list-inline">
     <li><a href="/about/">About</a></li>
     <li><a href="/sitemap/">Sitemap</a></li>
@@ -8,11 +9,8 @@
     {% if site.email %}<li>
       <a href="mailto:{{ site.email }}">{{ site.email }}</a>
     </li>{% endif %}
-    {% if site.github_username %}<li>
-    <iframe class="github-btn" src="http://ghbtns.com/github-btn.html?user={{ site.github_username }}&amp;type=follow&amp;count=true" allowtransparency="true" frameborder="0" scrolling="0" width="145px" height="20px" title="Follow on GitHub"></iframe>
-    </li>{% endif %}
-    {% if site.twitter_username %}<li class="follow-btn">
-      <a href="https://twitter.com/{{ site.twitter_username }}" class="twitter-follow-button" data-link-color="#0069D6" data-show-count="true">Follow @{{ site.twitter_username }}</a>
-    </li>{% endif %}
+    {% include services/github-follow.html %}
+    {% include services/twitter-follow.html %}
   </ul>
 </footer>
+{% endif %}

@@ -1,16 +1,19 @@
 ---
 layout: default
-#header: header.html
-title_position: article
-header_title: Documents
 ---
 <div class="document">
-  {% include widget-docnavigator.html %}
+  {% include widgets/doc-navigator.html %}
   <header class="post-header">
     <h1 id="{{ page.title | slugify }}">{{ page.title }}</h1>
   </header>
   <article class="post-content">
   {{ content }}
   </article>
-  {% include widget-docnavigator.html enable_title="bottom" %}
+  {% if site.collections[page.collection].share %}<div class="share text-right">
+    {% include widgets/share-button.html %}
+  </div>{% endif %}
+  {% include widgets/doc-navigator.html enable_title="bottom" %}
+  {% if site.collections[page.collection].comment %}<div class="comments">
+  	{% include widgets/comment.html %}
+  </div>{% endif %}
 </div>

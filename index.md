@@ -1,19 +1,20 @@
 ---
-layout: default
-header: header.html
-#header: frontpage-header.html
+layout: page
+header: disable
 ---
-{% include widget-highlightbox.html %}
+{% include widgets/carousel.html %}
+
+{% include widgets/highlightbox.html %}
 
 {% comment %}
 
 Choice widgets which you like.
 It can be used if you put out a widget to the outside of the comment.
 
-{% include widget-highlightbox.html %}
-{% include widget-highlight.html %}
-{% include widget-postlist.html %}
-{% include widget-docindex.html %}
+{% include widgets/highlightbox.html %}
+{% include widgets/highlight.html %}
+{% include widgets/postlist.html %}
+{% include widgets/docindex.html %}
 
 {% endcomment %}
 

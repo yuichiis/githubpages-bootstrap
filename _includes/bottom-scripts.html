@@ -1,0 +1,25 @@
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+<script>
+  $(document).ready(function () {
+    for(var level = 1; level <= 6; level++) {
+      $(".document h"+level).each(function () {
+        var id = $(this).attr("id");
+        if(typeof id !== "undefined" && id !== null) {
+          $(this).prepend("<a name=\""+id+"\" href=\"#"+id+"\"></a>");
+          $(this).attr("class","title");
+        }
+      });
+    }
+    {% capture table_style %}{% include get-theme-value name="table_style" %}{% endcapture %}
+    $(".post-content table").each(function () {
+      $(this).attr("class","table{% if table_style != "" %} {{ table_style }}{% endif %}");
+    });
+    {% include get-theme-value name="script_bottom" %}
+  });
+</script>
+{% if page.type == "blog" %}
+  {% include services/disqus-script.html %}
+{% endif %}

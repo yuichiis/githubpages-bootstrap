@@ -1,4 +1,9 @@
-<header class="navbar navbar-default navbar-static-top" role="navigation">
+{% capture navbar_brand_image %}{% include get-theme-value name="navbar_brand_image" %}{% endcapture %}
+{% capture navbar_brand_icon %}{% include get-theme-value name="navbar_brand_icon" %}{% endcapture %}
+{% capture navbar_brand_caption %}{% include get-theme-value name="navbar_brand_caption" %}{% endcapture %}
+{% capture navbar_search_box %}{% include get-theme-value name="navbar_search_box" %}{% endcapture %}
+{% capture navbar_style %}{% include get-theme-value name="navbar_style" %}{% endcapture %}
+<nav class="navbar{% if navbar_style != "" %} {{ navbar_style }}{% endif %}" role="navigation">
   <div class="container">
     <div class="navbar-header">
       <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse">
@@ -6,11 +11,11 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="{{ site.baseurl }}/"><span class="glyphicon glyphicon-home"></span></a>
+      {% if navbar_brand_image != "" %}<a href="{{ site.baseurl }}/"><img src="{{ site.baseurl }}{{ navbar_brand_image }}" class="brand-image" alt="brand"></a>{% endif %}<a class="navbar-brand" href="{{ site.baseurl }}/">{% if navbar_brand_icon != "" %}<span class="glyphicon {{ navbar_brand_icon }}"></span>{% endif %}{% if navbar_brand_caption != "" %}{{ navbar_brand_caption }}{% endif %}</a>
     </div>
     <div class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
-      {% for nav in site.navbar %}
+      {% for nav in site.navbar.menu %}
         {% if nav.menu %}
           <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">{{ nav.caption }}<b class="caret"></b></a>
@@ -30,13 +35,13 @@
       {% endfor %}
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        <form class="navbar-form navbar-left" action="https://www.google.com/search" method="get" role="form">
+        {% if navbar_search_box != "" %}<form class="navbar-form navbar-left" action="https://www.google.com/search" method="get" role="form">
           <fieldset role="search">
             <input type="hidden" name="q" value="site:{{ site.hostname }}" />
             <input class="form-control" type="search" name="q" results="0" placeholder="Search"/>
           </fieldset>
-        </form>
+        </form>{% endif %}
       </ul>
     </div><!--/.nav-collapse -->
   </div><!-- /.container -->
-</header>
+</nav>

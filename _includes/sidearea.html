@@ -1,7 +1,17 @@
-<div class="sidearea">
-  {% include widget-search.html %}
-  {% include widget-links.html %}
-  {% include widget-recentpost.html %}
-  {% include widget-subscribe.html %}
-  {% include widget-google-custom-search-engine.html %}
+{% if page.type == "blog" and site.blog.sidearea[include.name] %}
+{% assign sidearea = site.blog.sidearea[include.name] %}
+{% elsif page.collection and site.collections[page.collection].sidearea[include.name] %}
+{% assign sidearea = site.collections[page.collection].sidearea[include.name] %}
+{% elsif site.data.widgets.sidearea[include.name] %}
+{% assign sidearea = site.data.widgets.sidearea[include.name] %}
+{% else %}
+{% assign sidearea = null %}
+{% endif %}
+{% if sidearea %}
+<div class="sidearea sidearea-{{ include.name }}">
+{% for widget in sidearea.widgets %}
+  {% if widget.realm %}{% assign data = site.data.realms[widget.realm].widgets[widget.widget] %}{% else %}{% assign data = site.data.widgets[widget.widget] %}{% endif %}
+  {% include {{ widget.widget | prepend: "widgets/" | append: ".html" }} options=widget data=data %}
+{% endfor %}
 </div>
+{% endif %}

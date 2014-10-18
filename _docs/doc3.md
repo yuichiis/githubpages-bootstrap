@@ -11,3 +11,6 @@ test
 
 ## doc3 2
 test
+
+## doc3 3 {#section3-in-doc3}
+test
