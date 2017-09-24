@@ -11,7 +11,7 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      {% if navbar_brand_image != "" %}<a href="{{ site.baseurl }}/"><img src="{{ site.baseurl }}{{ navbar_brand_image }}" class="brand-image" alt="brand"></a>{% endif %}<a class="navbar-brand" href="{{ site.baseurl }}/">{% if navbar_brand_icon != "" %}<span class="glyphicon {{ navbar_brand_icon }}"></span>{% endif %}{% if navbar_brand_caption != "" %}{{ navbar_brand_caption }}{% endif %}</a>
+      {% if navbar_brand_image != "" %}<a href="{{ '/' | relative_url }}"><img src="{{ navbar_brand_image | relative_url }}" class="brand-image" alt="brand"></a>{% endif %}<a class="navbar-brand" href="{{ '/' | relative_url }}">{% if navbar_brand_icon != "" %}<span class="glyphicon {{ navbar_brand_icon }}"></span>{% endif %}{% if navbar_brand_caption != "" %}{{ navbar_brand_caption }}{% endif %}</a>
     </div>
     <div class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
@@ -24,20 +24,19 @@
               {% if menu_item.separator %}
                 <li class="{{ menu_item.separator }}">{{ menu_item.caption }}</li>
               {% else %}
-                <li><a href="{{ menu_item.link }}">{{ menu_item.caption }}</a></li>
+                <li><a href="{{ menu_item.link | relative_url }}">{{ menu_item.caption }}</a></li>
               {% endif %}
             {% endfor %}
             </ul>
           </li>
         {% else %}
-          <li{% if page.url contains nav.link %} class="active"{% endif %}><a href="{{ nav.link }}">{{ nav.caption }}</a></li>
+          <li{% if page.url contains nav.link %} class="active"{% endif %}><a href="{{ nav.link | relative_url }}">{{ nav.caption }}</a></li>
         {% endif %}
       {% endfor %}
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        {% if navbar_search_box != "" %}<form class="navbar-form navbar-left" action="https://www.google.com/search" method="get" role="form">
+        {% if navbar_search_box != "" %}<form class="navbar-form navbar-left" action="https://www.google.com/search" method="get" role="form" onSubmit="return sitesearchauxi(this.elements[0].elements[0]);">
           <fieldset role="search">
-            <input type="hidden" name="q" value="site:{{ site.hostname }}" />
             <input class="form-control" type="search" name="q" results="0" placeholder="Search"/>
           </fieldset>
         </form>{% endif %}

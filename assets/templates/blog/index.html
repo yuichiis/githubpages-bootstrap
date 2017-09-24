@@ -1,43 +1,56 @@
 ---
 layout: default
 type: blog
+permalink: /blog/
 ---
+{% if site.blogpagination %}
 <!-- Pagination links -->
 <ul class="pager">
   {% if paginator.previous_page_path %}
-    <li><a href="{{ paginator.previous_page_path }}">Previous</a></li>
+    <li><a href="{% include get-relative-url url=paginator.previous_page_path %}">Previous</a></li>
   {% else %}
     <li class="disabled"><a href="#">Previous</a></li>
   {% endif %}
   <span class="page_number ">Page: {{ paginator.page }} of {{ paginator.total_pages }}</span>
   {% if paginator.next_page_path %}
-    <li><a href="{{ paginator.next_page_path }}">Next</a></li>
+    <li><a href="{% include get-relative-url url=paginator.next_page_path %}">Next</a></li>
   {% else %}
     <li class="disabled"><a href="#">Next</a></li>
   {% endif %}
 </ul>
+{% endif %}
 
 <!-- This loops through the paginated posts -->
 {% for post in site.categories.pinup limit:site.paginate %}
   {% include post.html post=post %}
 {% endfor %}
-{% for post in paginator.posts %}
-  {% if post.categories contains "pinup" %}{% else %}
-    {% include post.html post=post %}
-  {% endif %}
-{% endfor %}
+{% if site.blogpagination %}
+  {% for post in paginator.posts %}
+    {% if post.categories contains "pinup" %}{% else %}
+      {% include post.html post=post %}
+    {% endif %}
+  {% endfor %}
+{% else %}
+  {% for post in site.posts limit:site.paginate %}
+    {% if post.categories contains "pinup" %}{% else %}
+      {% include post.html post=post %}
+    {% endif %}
+  {% endfor %}
+{% endif %}
 
+{% if site.blogpagination %}
 <!-- Pagination links -->
 <ul class="pager">
   {% if paginator.previous_page_path %}
-    <li><a href="{{ paginator.previous_page_path }}">Previous</a></li>
+    <li><a href="{% include get-relative-url url=paginator.previous_page_path %}">Previous</a></li>
   {% else %}
     <li class="disabled"><a href="#">Previous</a></li>
   {% endif %}
   <span class="page_number ">Page: {{ paginator.page }} of {{ paginator.total_pages }}</span>
   {% if paginator.next_page_path %}
-    <li><a href="{{ paginator.next_page_path }}">Next</a></li>
+    <li><a href="{% include get-relative-url url=paginator.next_page_path %}">Next</a></li>
   {% else %}
     <li class="disabled"><a href="#">Next</a></li>
   {% endif %}
 </ul>
+{% endif %}

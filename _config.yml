@@ -3,21 +3,23 @@ lang: en
 title: "Your awesome title"
 description: "Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description."
 author: "Your name"
-baseurl: ""
+#since: "Your site is since YYYY"
+#baseurl: "/my_dir"
 exclude: [ "README.md", "LICENSE" ]
-url: "http://yourdomain.com"
-hostname: "yourdomain.com"
+url: "https://yourdomain.com"
 #email: your-email@domain.com
 #twitter_username: your_twitter_username
 #github_username:  your_github_username
 #google_analytics_id: UA-XXXXXXXX-XX
 #google_site_verification: XXXXXXXXXXXXXXXXXXXXXXXXXXX
 #google_custom_search_engine_id: "XXXXXXXX:XXXXXXXXXXXXXXXXXXX"
-#disqus_shortname: your_disqus_shortname
+disqus_shortname: your_disqus_shortname
 
 ### Build settings
-permalink: "/blog/:year/:month/:day/:title/"
-images_path: "/img/"
+plugins:
+  - jekyll-paginate
+permalink: "/blog/:year/:month/:day/:title.html"
+images_path: "/assets/img/"
 sass:
   style: :compressed
 #markdown: kramdown
@@ -35,6 +37,7 @@ appearance:
   #wallpaper_repeat: repeat
 
 ### Blog
+blogpagination: true
 paginate: 5
 paginate_path: "blog/page:num/" # DON'T TOUCH THIS PATH.
 blog:
@@ -54,6 +57,7 @@ blog:
   #theme: blog
 
 ### Navigation Bar
+sitesearchscript: true
 navbar:
   menu:
     - caption: "Projects"
@@ -72,17 +76,33 @@ navbar:
 ### Document collections
 collections:
   docs:
+    permalink: "/:collection/:title:output_ext"
     title: "Documents"
     description: "some description"
     output: true
     comment: true
     share: true
+    #lang: en
     #navigator: disable
     #sidearea:
     #  primary:
     #    widgets:
     #    - { widget: search, caption: "Search" }
     #    - { widget: free-area, name: menu, markdownify: true, realm: docs }
+  moderndoc:
+    title: "Modern"
+    description: "some description"
+    output: true
+    theme: modern
+    #comment: true
+    #share: true
+    #lang: en
+    #navigator: disable
+    sidearea:
+      primary:
+        widgets:
+        - { widget: search, caption: "Search" }
+        - { widget: free-area, name: menu, markdownify: true, realm: docs }
   help:
     title: "Help"
     output: true

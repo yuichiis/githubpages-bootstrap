@@ -6,7 +6,7 @@
   <div class="row highlightbox">
   {% if post.image %}
     <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
-      {% if post.link %}<a href="{{ post.link }}">{% endif %}<img src="{{ post.image | prepend:site.images_path }}" class="img-rounded img-responsive"  alt="{{ post.image_alt }}">{% if post.link %}</a>{% endif %}
+      {% if post.link %}<a href="{{ post.link | relative_url }}">{% endif %}<img src="{{ post.image | prepend:site.images_path | relative_url }}" class="img-rounded img-responsive"  alt="{{ post.image_alt }}">{% if post.link %}</a>{% endif %}
     </div>
     <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 caption">
       <h4>{{ post.title }}</h4>

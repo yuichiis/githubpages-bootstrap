@@ -1,7 +1,7 @@
 {% assign post=include.post %}
 <div class="post">
   <header class="post-header">
-    <h2><a href="{{ post.url }}">{{ post.title }}</a></h2>
+    <h2><a href="{% include get-relative-url url=post.url %}">{{ post.title }}</a></h2>
     <p class="meta">{{ post.date | date: "%b %-d, %Y" }}{% if site.blog.enable_author %}{% if post.author %}{% if post.author.display_name %} • {{ post.author.display_name }}{% else %} • {{ post.author }}{% endif %}{% endif %}{% endif %}{% if post.meta %} • {{ post.meta }}{% endif %}</p>
   </header>
   <article class="post-content">
@@ -12,8 +12,7 @@
       <a href="{% include get-category-url category=category %}"><span class="label label-default">{{ category }}</span></a>
     {% endfor %}
     {% if site.blog.comment %}
-      {% capture url %}{{ site.url }}{{ post.url }}{% endcapture %}
-      {% include widgets/comment-count.html url=url %}
+      {% include widgets/comment-count.html url=post.url %}
     {% endif %}
   </p>{% endif %}
   {% if site.blog.comment and post.comments.size > 0 %}<div class="post-comments">

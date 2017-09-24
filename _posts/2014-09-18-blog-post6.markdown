@@ -5,6 +5,7 @@ date:   2014-09-18 18:33:37
 categories: highlight
 image: image242x200.png
 image_alt: "post6"
+link: /docs/
 ---
 
 Test test6666

@@ -1,4 +1,5 @@
 # Carousel widget
+slides:
 - caption: "First Slide"
   image: FirstSlide.png
   alt: "First Slide"

@@ -3,16 +3,16 @@
 <div id="carousel-gh_pages-generic" class="carousel slide" data-ride="carousel">
   <!-- Indicators -->
   <ol class="carousel-indicators">
-    {% for slide in widget_data %}
+    {% for slide in widget_data.slides %}
     <li data-target="#carousel-gh_pages-generic" data-slide-to="{{ forloop.index | minus:1 }}"{% if forloop.index == 1 %} class="active"{% endif %}></li>
     {% endfor %}
   </ol>
 
   <!-- Wrapper for slides -->
   <div class="carousel-inner">
-    {% for slide in widget_data %}
+    {% for slide in widget_data.slides %}
     <div class="item{% if forloop.index == 1 %} active{% endif %}">
-      <img src="{{ slide.image | prepend:site.images_path }}" alt="First Slide">
+      <img src="{{ slide.image | prepend:site.images_path | relative_url}}" alt="First Slide">
       <div class="carousel-caption">
         {{ slide.caption }}
       </div>

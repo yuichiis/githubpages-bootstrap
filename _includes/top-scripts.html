@@ -1,5 +1,6 @@
 {% include services/google-analytics.html %}
 {% include services/facebook-script.html %}
+{% if site.sitesearchscript %}{% include sitesearch-script.html %}{% endif %}
 <script type="text/javascript">
   {% include get-theme-value name="script_top" %}
 </script>

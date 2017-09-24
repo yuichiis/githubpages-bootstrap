@@ -1,4 +1,5 @@
 # Carousel widget
+slides:
 - caption: "Third Slide"
   image: ThirdSlide.png
   alt: "Third Slide"

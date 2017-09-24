@@ -1,13 +1,13 @@
 {% if page.collection %}
   {% comment %} Collection can not inherit page property. {% endcomment %}
-  {% assign header = site.collections[page.collection] %}
+  {% include set-current-collection %}{% assign header = globalcurrentcollection %}
 {% elsif page.type == "blog" %}
   {% assign header = site.blog %}
 {% else %}
   {% assign header = page %}
 {% endif %}
 {% if header.header != "disable" %}
-<div class="jumbotron">
+<div role="banner" class="jumbotron">
   <div class="container">
   {% if header.title %}
     <h1 class="{% include get-theme-value name="header_title_class" %}">{{ header.title }}</h1>

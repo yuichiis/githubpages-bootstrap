@@ -1,3 +1,7 @@
+frameworkcss: https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css
+frameworkcsstheme: https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css
+frameworkscript: https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js
+jqueryscript: https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js
 css: /assets/themes/default/css/style.css
 favicon: /assets/themes/default/img/favicon.ico
 touch_icon: /assets/themes/default/img/apple-touch-icon-precomposed.png

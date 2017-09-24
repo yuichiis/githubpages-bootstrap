@@ -1,6 +1,6 @@
 {% capture footer %}{% include get-theme-value name="footer" %}{% endcapture %}{% if footer != "disable" %}
 <footer class="site-footer">
-  <p>{% if site.author %}{{ site.author }}{% else %}{{ site.title }}{% endif %}({{ 'now' | date: "%Y" }}) All rights reserved. </p>
+  <p>{% if site.author %}{{ site.author }}{% else %}{{ site.title }}{% endif %}({% if site.since %}{{ site.since }}-{% endif %}{{ 'now' | date: "%Y" }}) All rights reserved. </p>
   <ul class="list-inline">
     <li><a href="/about/">About</a></li>
     <li><a href="/sitemap/">Sitemap</a></li>

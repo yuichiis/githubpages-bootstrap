@@ -8,7 +8,7 @@
       {% if post.image %}
         <div class="row highlightbox">
           <div class="col-xs-4 col-sm-12 col-md-12 col-lg-12 highlightimage">
-            {% if post.link %}<a href="{{ post.link }}">{% endif %}<img class="img-rounded img-responsive" src="{{ post.image | prepend:site.images_path }}" alt="{{ post.image_alt }}">{% if post.link %}</a>{% endif %}
+            {% if post.link %}<a href="{{ post.link | relative_url }}">{% endif %}<img class="img-rounded img-responsive" src="{{ post.image | prepend:site.images_path | relative_url }}" alt="{{ post.image_alt }}">{% if post.link %}</a>{% endif %}
           </div>
           <div class="col-xs-8 col-sm-12 col-md-12 col-lg-12 caption">
             <h3>{{ post.title }}</h3>
