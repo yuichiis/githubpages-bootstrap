@@ -106,3 +106,5 @@ collections:
   help:
     title: "Help"
     output: true
+
+theme: jekyll-theme-leap-day
